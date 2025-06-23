@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domino's Pizza Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="location-status" id="locationStatus" onclick="handleLocationClick()">
+            <div class="location-row">
+                <span class="location-icon"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="location-text">No Location</span>
+                <span class="location-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="location-subtext">Exact Location Required!</div>
+        </div>
+        <!-- Profile Icon -->
+        <div class="profile-icon" id="profileIcon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </header>
+
+    <!-- Location Prompt Bar -->
+    <section class="location-prompt">
+        <div class="location-prompt-left">
+            <span class="location-prompt-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <div class="location-prompt-text">
+                <div class="location-prompt-title">Give us your exact location</div>
+                <div class="location-prompt-desc">for seamless delivery</div>
+            </div>
+        </div>
+        <button class="detect-location-btn" onclick="handleDetectLocation()">Detect location</button>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <div class="menu-tabs">
+            <div class="menu-tab active" data-tab="delivery" id="tab-delivery" onclick="handleTabClick('delivery')">
+                <div>Delivery</div>
+                <span class="menu-tab-sub">NOW</span>
+            </div>
+            <div class="menu-tab" data-tab="takeaway" id="tab-takeaway" onclick="handleTabClick('takeaway')">
+                <div>Takeaway</div>
+                <span class="menu-tab-sub">Select Store</span>
+            </div>
+            <div class="menu-tab" data-tab="dinein" id="tab-dinein" onclick="handleTabClick('dinein')">
+                <div>Dine-in</div>
+                <span class="menu-tab-sub">Select Store</span>
+            </div>
+        </div>
+        <h2 class="menu-heading">What are you craving for?</h2>
+        <div class="menu-categories" id="menuCategories">
+            <div class="menu-category" data-category="bigbigpizza" onclick="handleMenuCategoryClick('Big Big Pizza')">
+                <img src="Images/BigBigPizza.png" alt="Big Big Pizza">
+                <div class="menu-category-label">Big Big Pizza</div>
+            </div>
+            <div class="menu-category" data-category="chickenburst" onclick="handleMenuCategoryClick('Chicken Burst')">
+                <img src="Images/ChickenBurst.png" alt="Chicken Burst">
+                <div class="menu-category-label">Chicken Burst</div>
+            </div>
+            <div class="menu-category" data-category="cheeseburstpizza"
+                onclick="handleMenuCategoryClick('Cheese Burst Pizza')">
+                <img src="Images/cheeseburst.jpg" alt="Cheese Burst Pizza">
+                <div class="menu-category-label">Cheese Burst Pizza</div>
+            </div>
+            <div class="menu-category" data-category="vegpizza" onclick="handleMenuCategoryClick('Veg Pizza')">
+                <img src="Images/VegPizza.png" alt="Veg Pizza">
+                <div class="menu-category-label">Veg Pizza</div>
+            </div>
+            <div class="menu-category" data-category="cheesevolcano"
+                onclick="handleMenuCategoryClick('Cheese Volcano')">
+                <img src="Images/cheesevolcano.jpg" alt="Cheese Volcano">
+                <div class="menu-category-label">Cheese Volcano</div>
+            </div>
+            <div class="menu-category" data-category="pizzamania" onclick="handleMenuCategoryClick('Pizza Mania')">
+                <img src="Images/PizzaManianew.png" alt="Pizza Mania">
+                <div class="menu-category-label">Pizza Mania</div>
+            </div>
+            <div class="menu-category" data-category="valuecombos" onclick="handleMenuCategoryClick('Value Combos')">
+                <img src="Images/ValueCombosNew.png" alt="Value Combos">
+                <div class="menu-category-label">Value Combos</div>
+            </div>
+            <div class="menu-category" data-category="garlicbreads"
+                onclick="handleMenuCategoryClick('Garlic Breads & More')">
+                <img src="Images/c_garlicbread.jpg" alt="Garlic Breads & More">
+                <div class="menu-category-label">Garlic Breads & More</div>
+            </div>
+            <div class="menu-category" data-category="beverages" onclick="handleMenuCategoryClick('Beverages')">
+                <img src="Images/CokeBeverage.png" alt="Beverages">
+                <div class="menu-category-label">Beverages</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's New Section -->
+    <section class="whats-new-section">
+        <h2 class="whats-new-heading">What's New</h2>
+        <div class="whats-new-cards">
+            <div class="whats-new-card">
+                <img src="Images/post-4.jpg" alt="Big Big Pizza">
+            </div>
+            <div class="whats-new-card">
+                <img src="Images/post-3.JPG" alt="Cheese Burst">
+            </div>
+            <div class="whats-new-card">
+                <img src="Images/post-2.jpg" alt="Cheese Volcano">
+            </div>
+            <div class="whats-new-card">
+                <img src="Images/post-1.jpg" alt="Garlic Breadsticks">
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Veg Delights Section -->
+    <section class="bestsellers-section">
+        <div class="bestsellers-header">
+            <span class="bestsellers-crown" style="color:#ffb300;"><i class="fa-solid fa-award"></i></span>
+            <span class="bestsellers-title" style="font-size: 2rem; font-weight: bold;">Popular Veg Delights</span>
+        </div>
+        <div class="bestsellers-subtitle" style="font-size: 1.1rem; color: #888;">
+            FREE Delivery For Orders Above ₹149
+        </div>
+        <div class="bestsellers-cards">
+            <div class="bestseller-card">
+                <img src="Images/margherita.jpg.webp" alt="Margherita">
+                <button class="bestseller-customise">Customise <i class="fa fa-chevron-right"></i></button>
+                <div class="bestseller-info">
+                    <div class="bestseller-name"><i class="fa-regular fa-square"></i> Margherita</div>
+                    <div class="bestseller-desc">Classic delight with 100% real mozzarella cheese.</div>
+                    <div class="bestseller-price">₹109</div>
+                    <div class="bestseller-crust">Regular | New Hand Tossed <i class="fa fa-chevron-right"></i></div>
+                    <button class="bestseller-add">Add +</button>
+                </div>
+            </div>
+            <div class="bestseller-card">
+                <img src="Images/farmhouse.jpg" alt="Farmhouse">
+                <button class="bestseller-customise">Customise <i class="fa fa-chevron-right"></i></button>
+                <div class="bestseller-info">
+                    <div class="bestseller-name"><i class="fa-regular fa-square"></i> Farmhouse</div>
+                    <div class="bestseller-desc">Delightful combination of onion, capsicum, tomato & grilled mushroom.
+                    </div>
+                    <div class="bestseller-price">₹259</div>
+                    <div class="bestseller-crust">Regular | New Hand Tossed <i class="fa fa-chevron-right"></i></div>
+                    <button class="bestseller-add">Add +</button>
+                </div>
+            </div>
+            <div class="bestseller-card">
+                <img src="Images/peppy_paneer.jpg" alt="Peppy Paneer">
+                <button class="bestseller-customise">Customise <i class="fa fa-chevron-right"></i></button>
+                <div class="bestseller-info">
+                    <div class="bestseller-name"><i class="fa-regular fa-square"></i> Peppy Paneer</div>
+                    <div class="bestseller-desc">Flavorful trio of juicy paneer, crisp capsicum with spicy red paprika.
+                    </div>
+                    <div class="bestseller-price">₹259</div>
+                    <div class="bestseller-crust">Regular | New Hand Tossed <i class="fa fa-chevron-right"></i></div>
+                    <button class="bestseller-add">Add +</button>
+                </div>
+            </div>
+            <div class="bestseller-card">
+                <img src="Images/veggie_paradise_side.webp" alt="Veggie Paradise">
+                <button class="bestseller-customise">Customise <i class="fa fa-chevron-right"></i></button>
+                <div class="bestseller-info">
+                    <div class="bestseller-name"><i class="fa-regular fa-square"></i> Veggie Paradise</div>
+                    <div class="bestseller-desc">The awesome foursome! Golden corn, black olives, capsicum, red paprika.
+                    </div>
+                    <div class="bestseller-price">₹259</div>
+                    <div class="bestseller-crust">Regular | New Hand Tossed <i class="fa fa-chevron-right"></i></div>
+                    <button class="bestseller-add">Add +</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garlic Breads & Dips Section -->
+    <section class="bestsellers-section">
+        <div class="bestsellers-header">
+            <span class="bestsellers-crown" style="color:#ffb300;"><i class="fa-solid fa-bread-slice"></i></span>
+            <span class="bestsellers-title" style="font-size: 2rem; font-weight: bold;">Garlic Breads & Dips</span>
+        </div>
+        <div class="bestsellers-subtitle" style="font-size: 1.1rem; color: #888;">
+            Best Companions To Your Pizza
+        </div>
+        <div class="bestsellers-cards">
+            <div class="bestseller-card">
+                <img src="Images/plain_GB_side.webp" alt="Garlic Breadsticks">
+                <span class="bestseller-badge">BESTSELLER</span>
+                <div class="bestseller-info">
+                    <div class="bestseller-name"><i class="fa-regular fa-square"></i> Garlic Breadsticks</div>
+                    <div class="bestseller-desc">Baked to perfection. Your perfect pizza partner! Tastes best with dip.
+                    </div>
+                    <div class="bestseller-price">₹109</div>
+                    <button class="bestseller-add">Add +</button>
+                </div>
+            </div>
+            <div class="bestseller-card">
+                <img src="Images/veg_parcel.jpg" alt="Veg Parcel">
+                <span class="bestseller-badge">BESTSELLER</span>
+                <div class="bestseller-info">
+                    <div class="bestseller-name"><i class="fa-regular fa-square"></i> Veg Parcel</div>
+                    <div class="bestseller-desc">Snacky bites! Pizza rolls with paneer & creamy harissa sauce.</div>
+                    <div class="bestseller-price">₹49</div>
+                    <button class="bestseller-add">Add +</button>
+                </div>
+            </div>
+            <div class="bestseller-card">
+                <img src="Images/cheesy_dip.jpg" alt="Cheesy Dip">
+                <span class="bestseller-badge">BESTSELLER</span>
+                <div class="bestseller-info">
+                    <div class="bestseller-name"><i class="fa-regular fa-square"></i> Cheesy Dip</div>
+                    <div class="bestseller-desc">An all-time favorite with your Garlic Breadsticks & Stuffed Garlic
+                        Bread for a Cheesy indulgence.</div>
+                    <div class="bestseller-price">₹30</div>
+                    <button class="bestseller-add">Add +</button>
+                </div>
+            </div>
+            <div class="bestseller-card">
+                <img src="Images/classic_stuffed_garlic_bread.jpg" alt="Classic Stuffed Garlic Bread">
+                <span class="bestseller-badge">BESTSELLER</span>
+                <div class="bestseller-info">
+                    <div class="bestseller-name"><i class="fa-regular fa-square"></i> Classic Stuffed Garlic Bread</div>
+                    <div class="bestseller-desc">Freshly baked garlic bread with cheese, juicy corn & tangy jalapeno.
+                    </div>
+                    <div class="bestseller-price">₹159</div>
+                    <button class="bestseller-add">Add +</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
